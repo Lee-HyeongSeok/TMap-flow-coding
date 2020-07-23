@@ -10,8 +10,7 @@
 		* PolygonDemoActivity.java   
 
 #### * 주요 코드   setMapViewEventListener   
-		* MapViewEventListener interface를 구현하는 객체를 MapView에 등록하여 
-지도 이동, 확대, 축소 및 지도 화면 터치(Single Tap, Double Tap, Long Press) 이벤트를 통보받을 수 있다.
+		* MapViewEventListener interface를 구현하는 객체를 MapView에 등록하여 지도 이동, 확대, 축소 및 지도 화면 터치(Single Tap, Double Tap, Long Press) 이벤트를 통보받을 수 있다.
 
 #### CameraDemoActivity.java   
 			* MapView 초기화가 끝나고 지도 이미지 로딩을 할 준비가 되었을 때 호출된다.
