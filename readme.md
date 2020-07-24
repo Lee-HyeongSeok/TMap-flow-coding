@@ -2,12 +2,13 @@
 #### API 및 Sample Code 출처 : https://apis.map.kakao.com/
 #### 프로젝트 출처 : 한국산업기술대학교 소프트웨어공학과 
 
-- 이형석(16학번, 소프트웨어) branch : dev   
+- 이형석(16학번, 소프트웨어) 
+		* branch : dev   
 
 	- 박세경(17학번, 소프트웨어)   
-			* branch : psk
+				* branch : psk
 	- 조현민(16학번, 소프트웨어)   
-			* branch : HMC
+				* branch : HMC
 	- 황규빈(16학번, 소프트웨어)   
 				* branch : GBb
 
