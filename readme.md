@@ -27,4 +27,4 @@
 				* Trello   
 		
 		- 소개   
-				* Project_introduction.pdf 참고 
+				* https://github.com/leehyeongseck/KakaoMap-flow-coding/blob/master/Project_introduction.pdf 참고 
