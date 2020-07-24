@@ -12,10 +12,11 @@
 	- 황규빈(16학번, 소프트웨어)   
 				* branch : GBb
 
+
 * 프로젝트   
 			* 구성   
-					* Kotlin(Android Studio)   
-					* Kakao Map API   - with sample code   
+						* Kotlin(Android Studio)   
+						* Kakao Map API   - with sample code   
 
 			* 기간 7.20(월) ~ 8.12(수)   
 
