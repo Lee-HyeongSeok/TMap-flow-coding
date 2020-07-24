@@ -14,15 +14,16 @@
 
 
 * 프로젝트   
-			* 구성   
-						* Kotlin(Android Studio)   
-						* Kakao Map API   - with sample code   
+		- 구성   
 
-			* 기간 7.20(월) ~ 8.12(수)   
+					* Kotlin(Android Studio)   
+					* Kakao Map API   - with sample code   
 
-			* 협업 도구   
-					* Github   
-					* Trello   
+		- 기간 7.20(월) ~ 8.12(수)   
+
+		- 협업 도구   
+				* Github   
+				* Trello   
 		
-			* 소개   
-					* Project_introduction.pdf 참고 
+		- 소개   
+				* Project_introduction.pdf 참고 
