@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1057408415899",
+    "firebase_url": "https://mapmarkers-f7d42.firebaseio.com",
+    "project_id": "mapmarkers-f7d42",
+    "storage_bucket": "mapmarkers-f7d42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057408415899:android:0ef7d7cc50586cfbbfae3e",
+        "android_client_info": {
+          "package_name": "kr.psk.kpu.kakaomap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057408415899-34i7dk7rdkteg9r91u1m4vf7qk8h0u8d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvsqMqfxlWY7IQQk2LV22Scm4bXFeg_GY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057408415899-34i7dk7rdkteg9r91u1m4vf7qk8h0u8d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
