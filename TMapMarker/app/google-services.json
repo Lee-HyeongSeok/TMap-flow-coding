@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "240266467108",
+    "firebase_url": "https://fir-16573.firebaseio.com",
+    "project_id": "fir-16573",
+    "storage_bucket": "fir-16573.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240266467108:android:ef000d88d7295144da05b1",
+        "android_client_info": {
+          "package_name": "kr.psk.kpu.tmapmarker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240266467108-u68bj0gmtqanguq2u4b5pd876mj0lqe1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXt9KqgHfBxh-6ZW1R5dPcSTsMF8BjTgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240266467108-u68bj0gmtqanguq2u4b5pd876mj0lqe1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
