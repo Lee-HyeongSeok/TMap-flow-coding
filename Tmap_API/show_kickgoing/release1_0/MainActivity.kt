@@ -110,7 +110,6 @@ class MainActivity : AppCompatActivity() {
             val dialogPASSText = log_dialog.findViewById<EditText>(R.id.edit_pass)
             val dialogRegi = log_dialog.findViewById<TextView>(R.id.Register_Btn)
             val intent: Intent = Intent(this, RegisterEvent::class.java)
-            var user_password: String? = null
             var checking_id: Boolean = false
 
             builder.setView(log_dialog)
@@ -137,6 +136,11 @@ class MainActivity : AppCompatActivity() {
                                 if (str_pass.equals(temp)) { // 로그인 성공
                                     Toast.makeText(applicationContext, "${str_id} 님이 로그인하셨습니다.", Toast.LENGTH_SHORT).show()
                                 }
+                                // 2020-07-30(목) 작성    
+                                // 비밀번호 예외처리 추가
+                                else{
+                                    Toast.makeText(applicationContext, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+                                }
                                 checking_id = false // 재로그인을 위해 로그인 offset을 처음 상태로 돌려 놓는다.
                             } else {
                                 // 존재하지 않는 아이디
@@ -148,10 +152,6 @@ class MainActivity : AppCompatActivity() {
                             // 데이터에 대한 접근이 취소되었을 때 동작하는 함수
                         }
                     })
-                    if (str_pass.equals(user_password)) {
-                        Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        tmapView!!.invalidate() // 2020-07-30(목) 작성
-                    }
                 }
                 .setNegativeButton("취소") { dialogInterface, i ->
                     dialogInterface.dismiss()
@@ -165,7 +165,6 @@ class MainActivity : AppCompatActivity() {
         } // end of Rental_Btn Listener
 
         // 2020-07-30(목) 작성
-
         tmapView!!.setOnClickListenerCallBack(object: TMapView.OnClickListenerCallback{
             override fun onPressEvent(
                 p0: ArrayList<TMapMarkerItem>?,
@@ -179,7 +178,6 @@ class MainActivity : AppCompatActivity() {
                 tmapView!!.invalidate()
                 return false
             }
-
             override fun onPressUpEvent(
                 p0: ArrayList<TMapMarkerItem>?,
                 p1: ArrayList<TMapPOIItem>?,
@@ -192,9 +190,7 @@ class MainActivity : AppCompatActivity() {
                 tmapView!!.invalidate()
                 return false
             }
-
         })
-
 
     } // end of onCreate() method
 
