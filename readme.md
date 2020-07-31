@@ -36,6 +36,8 @@
 				* 애자일 개발 방법론   
 
 #### 2020-07-31(금) 스프린트 0주차 및 백로그 설명   
+
+
 		- <https://github.com/leehyeongseck/TMap-flow-coding/blob/master/AgileReport_2020_07_31(FRI).pdf>   
 		- 작성자 : 소프트웨어공학과 16학번 3학년 황규빈   
 				- 소프트웨어공학과 16학번 3학년 조현민   
