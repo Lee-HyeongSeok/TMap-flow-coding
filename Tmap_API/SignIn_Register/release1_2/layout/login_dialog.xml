@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="15dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="사용자 아이디 입력"
+        android:textSize="15sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/edit_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="사용자 비밀번호 입력"
+        android:textSize="15sp"
+        android:layout_marginBottom="5dp"
+        />
+    <TextView
+        android:id="@+id/Register_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="15sp"
+        android:textColor="#0000FF"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/google_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="구글 로그인"
+        android:textSize="15sp"
+        android:textColor="#0000FF"
+        />
+
+</LinearLayout>
