@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // 사용자 인증 부분 : 앱 관리자
         // 2020-07-28일 화요일 작성
         mAuth = FirebaseAuth.getInstance()
-        mAuth.signInWithEmailAndPassword("kea7111@gmail.com", "jjhh@0515") // 하드 코딩 처리 나중에
+        mAuth.signInWithEmailAndPassword("email", "password") // 하드 코딩 처리 나중에
                 .addOnCompleteListener(this){ task ->
                     if(task.isSuccessful){
                         val user = mAuth.currentUser
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         // 2020-07-28일 화요일 작성
         val tmapView:TMapView = TMapView(this)
-        tmapView.setSKTMapApiKey("l7xxca4265e638094d98b6baab6062b4d7a2")
+        tmapView.setSKTMapApiKey("your app key")
         linear.addView(tmapView)
 
         // 2020-07-28일 화요일 작성
