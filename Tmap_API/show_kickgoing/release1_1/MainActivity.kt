@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), TMapGpsManager.onLocationChangedCallba
         // 사용자 인증 부분 : 앱 관리자
         // 2020-07-28일 화요일 작성
         mAuth = FirebaseAuth.getInstance()
-        mAuth.signInWithEmailAndPassword("kea7111@gmail.com", "jjhh@0515") // 하드 코딩 처리 나중에
+        mAuth.signInWithEmailAndPassword("email", "password") // 하드 코딩 처리 나중에
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = mAuth.currentUser
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), TMapGpsManager.onLocationChangedCallba
         // 2020-07-28일 화요일 작성
         // 2020-07-29일 수요일 수정
         tmapView = TMapView(this)
-        tmapView?.setSKTMapApiKey("l7xxca4265e638094d98b6baab6062b4d7a2") // 하드 코딩 처리 나중에
+        tmapView?.setSKTMapApiKey("your app key") // 하드 코딩 처리 나중에
         linear.addView(tmapView)
         tmapView!!.setIconVisibility(true)
         tmapView!!.setCompassMode(true)
