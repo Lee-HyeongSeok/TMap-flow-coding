@@ -43,7 +43,7 @@
                             var tpolyLine = TMapPolyLine() // polyLine 생성 
                             tpolyLine.addLinePoint(p) // 마커 포인트 추가
                             tpolyLine.addLinePoint(myLocation) // 현재위치 포인트 추가
-                            var dist = tpolyLine.distance.toInt() <span style = "color:red">// 3. 마커와 자신의 위치 거리를 구하는 메소드 사용 </span>
+                            var dist = tpolyLine.distance.toInt()// 3. 마커와 자신의 위치 거리를 구하는 메소드 사용
                             i.calloutSubTitle = "${dist}m" // 서브 타이틀에 구해진 거리를 갱신 
                             i.autoCalloutVisible = true
                             tmapView!!.invalidate() // 맵 갱신 
