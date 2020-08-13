@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation
 import com.example.tmapclone_kickgoing.MainActivity.Companion.auth
 import com.facebook.*
@@ -31,14 +32,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import java.util.*
+import kotlin.random.Random.Default.Companion
 
 
 class Activity_login : AppCompatActivity() {
     // [START declare_auth]
 
-    lateinit var callbackManager: CallbackManager
-
+    private lateinit var callbackManager: CallbackManager
     private lateinit var googleSignInClient: GoogleSignInClient
+
 
     private fun registerFB(){
         auth = Firebase.auth
@@ -63,6 +65,7 @@ class Activity_login : AppCompatActivity() {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         callbackManager = CallbackManager.Factory.create();
+
 
         btLoginFacebook.setOnClickListener{
             facebookLogin()
@@ -115,7 +118,9 @@ class Activity_login : AppCompatActivity() {
                             User.setName(str_id)
                             User.setEmail(auth.currentUser!!.email.toString())
                             User.setUserLog(true)
-                            Log.d("login", User.getUserLog().toString())
+                            Log.d("showInformed", "name: "+ auth.currentUser!!.displayName.toString())
+                            Log.d("showInformed", "email" + auth.currentUser!!.email.toString())
+
                             finish()
                         }
                         // 아이디는 일치, 비밀번호가 불일치할 때
@@ -142,6 +147,7 @@ class Activity_login : AppCompatActivity() {
         }
 
 
+
     }   //end of onCreate()
 
     private fun facebookLogin(){
@@ -153,12 +159,14 @@ class Activity_login : AppCompatActivity() {
                 //페이스북 로그인 성공
                 handleFacebookAccessToken(result?.accessToken)
                 Toast.makeText(applicationContext,"로그인 성공",Toast.LENGTH_SHORT).show()
-
-                User.setName(auth.currentUser!!.displayName.toString())
+                var user:FirebaseUser? = auth.currentUser
+                User.setName(user!!.displayName.toString())
                 User.setEmail("FaceBook")
-
-                Log.d("EEE", auth.currentUser!!.displayName.toString())
                 User.setUserLog(true)
+                User.setFBlogin(true)
+
+                Log.d("showInformed", "name: "+ auth.currentUser!!.displayName.toString())
+                Log.d("showInformed", "email" + auth.currentUser!!.email.toString())
                 finish()
             }
             override fun onCancel() {
@@ -182,7 +190,6 @@ class Activity_login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Log.d("MainActivity", "signInWithCredential:success")
-                        val user = auth.currentUser
                         //updateUI(user)
                     } else {
                         Log.w("MainActivity", "signInWithCredential:failure", task.exception)
@@ -200,9 +207,13 @@ class Activity_login : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         Log.d(TAG, "firebaseAuthWithGoogle:" + currentUser?.displayName)
         if(currentUser !=null){
-            Log.d("@@@@", currentUser!!.email.toString())
             Toast.makeText(this,"로그인 상태입니다.",Toast.LENGTH_SHORT).show()
-            //updateUI(auth.currentUser!!) // auth.currentUser
+            Log.d("@@@@", currentUser!!.email.toString())
+
+            User.setName(currentUser.displayName.toString())
+            User.setEmail(currentUser.email.toString())
+            User.setUserLog(true)
+            finish()
         }
     }
     // [END on_start_check_user]
@@ -226,8 +237,6 @@ class Activity_login : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        callbackManager?.onActivityResult(requestCode, resultCode, data)
-
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -238,17 +247,13 @@ class Activity_login : AppCompatActivity() {
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
 
-                User.setName(auth.currentUser!!.displayName.toString())
-                User.setEmail(auth.currentUser!!.email.toString())
-                Log.d("googleEmail", auth.currentUser!!.email.toString())
-                User.setUserLog(true)
-
-                Log.d("@@", auth.currentUser!!.email.toString())
-                finish()
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
             }
+        }
+        else{
+            callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
     }
 
@@ -262,6 +267,13 @@ class Activity_login : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
+                    var user:FirebaseUser? = auth.currentUser
+                    User.setName(user!!.displayName.toString())
+                    User.setEmail(user!!.email.toString())
+                    User.setUserLog(true)
+
+                    Log.d("showInformed", "name: "+ auth.currentUser!!.displayName.toString())
+                    Log.d("showInformed", "email" + auth.currentUser!!.email.toString())
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
@@ -290,5 +302,6 @@ class Activity_login : AppCompatActivity() {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
+
 
 }

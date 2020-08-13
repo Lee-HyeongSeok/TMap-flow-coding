@@ -71,6 +71,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_format_list_bulleted_24)
 
+        val intent: Intent = Intent(this, Activity_login::class.java)
+        startActivity(intent)
+
+
 
         //val Rlayout:RelativeLayout = findViewById(R.id.map_view) as RelativeLayout
         tMapView = TMapView(this)
@@ -228,22 +232,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
     }
+
     override fun onStart() {
         super.onStart()
+        drawer_layout.closeDrawer(GravityCompat.START)
 
-        Log.d("start", User.getUserLog().toString())
-        Log.d("start", User.getName().toString())
-        Log.d("start", User.getEmail().toString())
-        if(User.getUserLog() == true){
-            name.text = User.getName()
-            email.text = User.getEmail()
+        var fb: FirebaseUser? = auth?.currentUser
+        if (fb != null) {
+            if (User.getFBUserLog() == true) {
+                User.setName(fb.displayName.toString())
+                User.setEmail("FaceBook")
+                User.setUserLog(true)
+            } else {
+                User.setName(fb.displayName.toString())
+                User.setEmail(fb.email.toString())
+                User.setUserLog(true)
+            }
         }
+        Log.d("start", "email : " + User.getEmail())
+        Log.d("start", "name : " + User.getName())
+        Log.d("start", "login : " + User.getUserLog())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item?.itemId){
             android.R.id.home -> {
                 drawer_layout.openDrawer(GravityCompat.START)
+                //if(User.getUserLog() == true){
+                    name.text = User.getName()
+                    email.text = User.getEmail()
+                //}
             }
         }
         return super.onOptionsItemSelected(item)
@@ -652,16 +670,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.account-> {
-                val intent: Intent = Intent(this, Activity_login::class.java)
-                startActivity(intent)
+                if(User.getUserLog()==true){
+                    auth.signOut()
+                }
+                else {
+                    val intent: Intent = Intent(this, Activity_login::class.java)
+                    startActivity(intent)
+                }
             }
             R.id.how-> Toast.makeText(this,"item2 clicked",Toast.LENGTH_SHORT).show()
             R.id.setting-> Toast.makeText(this,"item3 clicked",Toast.LENGTH_SHORT).show()
+            R.id.logout->{
+                drawer_layout.closeDrawer(GravityCompat.START)
+                Firebase.auth.signOut()
+                User.setUserLog(false)
+                User.setName("QuickGoing")
+                User.setFBlogin(false)
+                User.setEmail("do not login")
+            }
         }
         return false
     }
 
-    companion object {
-        public lateinit var auth: FirebaseAuth
+    companion object{
+        var auth: FirebaseAuth = FirebaseAuth.getInstance()
     }
+
 }
