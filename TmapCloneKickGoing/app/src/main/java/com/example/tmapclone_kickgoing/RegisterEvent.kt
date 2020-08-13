@@ -2,10 +2,14 @@ package com.example.tmapclone_kickgoing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register_event.*
 
@@ -29,7 +33,7 @@ class RegisterEvent : AppCompatActivity() {
 
         // 확인버튼 누를 시 동작
         registID.setOnClickListener {
-            if(password.text.toString() == ""){
+            if(pass.text.toString() == ""){
                 Toast.makeText(applicationContext, "비밀번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
             }
             else {
@@ -79,6 +83,8 @@ class RegisterEvent : AppCompatActivity() {
                 }
             })
         }
-    }
+    }//end of onCreate()
+
+
 
 }

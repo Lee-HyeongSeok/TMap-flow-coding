@@ -1,41 +1,97 @@
 package com.example.tmapclone_kickgoing
 
-import androidx.appcompat.app.AppCompatActivity
+
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import com.example.tmapclone_kickgoing.MainActivity.Companion.auth
+import com.facebook.*
+import com.facebook.appevents.AppEventsLogger
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+import java.util.*
+
 
 class Activity_login : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+    // [START declare_auth]
+
+    lateinit var callbackManager: CallbackManager
+
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private fun registerFB(){
+        auth = Firebase.auth
+        auth.signInWithEmailAndPassword("1170313@naver.com", "silver12")
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d("TAG", "signInWithEmail:success")
+                    val user = auth.currentUser
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "signInWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        registerFB()    //FireBase 등록
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+        callbackManager = CallbackManager.Factory.create();
 
-        var log_dialog: LinearLayout =
-            View.inflate(this@Activity_login, R.layout.activity_login, null) as LinearLayout
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this@Activity_login)
-        val dialogIDText = log_dialog.findViewById<EditText>(R.id.id)
-        val dialogPASSText = log_dialog.findViewById<EditText>(R.id.password)
+        btLoginFacebook.setOnClickListener{
+            facebookLogin()
+        }
+
+        // Configure Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        auth = Firebase.auth
+
+        googleButton.setOnClickListener {
+            signIn()
+        }
+
         //val dialogRegi = log_dialog.findViewById<TextView>(R.id.Register_Btn)
         // 2020-07-30(목) 이형석 수정
         // var user_password: String? = null
         var checking_id: Boolean = false
 
-        btnID.setOnClickListener {
-            val str_id: String = dialogIDText.text.toString()
-            val str_pass: String = dialogPASSText.text.toString()
+        btnLogin.setOnClickListener {
+            registerFB()
+            val str_id: String = etEmail.text.toString()
+            val str_pass: String = etPassword.text.toString()
 
             // firebase realtime DB에 접근하는 부분
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -55,6 +111,12 @@ class Activity_login : AppCompatActivity() {
                         // 입력한 비밀번호와 DB에서 가져온 비밀번호 일치 시
                         if (str_pass.equals(temp)) { // 로그인 성공
                             Toast.makeText(applicationContext, "${str_id} 님이 로그인하셨습니다.", Toast.LENGTH_SHORT).show()
+
+                            User.setName(str_id)
+                            User.setEmail(auth.currentUser!!.email.toString())
+                            User.setUserLog(true)
+                            Log.d("login", User.getUserLog().toString())
+                            finish()
                         }
                         // 아이디는 일치, 비밀번호가 불일치할 때
                         else{
@@ -78,21 +140,155 @@ class Activity_login : AppCompatActivity() {
 
              */
         }
+
+
     }   //end of onCreate()
-    private fun registerFB(){
-        auth = Firebase.auth
-        auth.signInWithEmailAndPassword("1170313@naver.com", "silver12")
+
+    private fun facebookLogin(){
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"))
+        LoginManager.getInstance().registerCallback(callbackManager, object :
+            FacebookCallback<LoginResult> {
+
+            override fun onSuccess(result: LoginResult?) {
+                //페이스북 로그인 성공
+                handleFacebookAccessToken(result?.accessToken)
+                Toast.makeText(applicationContext,"로그인 성공",Toast.LENGTH_SHORT).show()
+
+                User.setName(auth.currentUser!!.displayName.toString())
+                User.setEmail("FaceBook")
+
+                Log.d("EEE", auth.currentUser!!.displayName.toString())
+                User.setUserLog(true)
+                finish()
+            }
+            override fun onCancel() {
+                //페이스북 로그인 취소
+                //updateUI(null)
+            }
+
+            override fun onError(error: FacebookException?) {
+                //페이스북 로그인 실패
+                //updateUI(null)
+            }
+        })
+    }
+
+
+    private fun handleFacebookAccessToken(token: AccessToken?) {
+        Log.d("MainActivity", "handleFacebookAccessToken:$token")
+        if (token != null) {
+            val credential = FacebookAuthProvider.getCredential(token.token)
+            auth.signInWithCredential(credential)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Log.d("MainActivity", "signInWithCredential:success")
+                        val user = auth.currentUser
+                        //updateUI(user)
+                    } else {
+                        Log.w("MainActivity", "signInWithCredential:failure", task.exception)
+                        Toast.makeText(this,"Authentication failed",Toast.LENGTH_SHORT).show()
+                        //updateUI(null)
+                    }
+                }
+        }
+    }
+
+    // [START on_start_check_user]
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        // Check if user is signed in (non-null) and update UI accordingly.
+        Log.d(TAG, "firebaseAuthWithGoogle:" + currentUser?.displayName)
+        if(currentUser !=null){
+            Log.d("@@@@", currentUser!!.email.toString())
+            Toast.makeText(this,"로그인 상태입니다.",Toast.LENGTH_SHORT).show()
+            //updateUI(auth.currentUser!!) // auth.currentUser
+        }
+    }
+    // [END on_start_check_user]
+
+
+    private fun updateUI(user: FirebaseUser?) {
+        if (user != null) {
+            val Nav_View: NavigationView = findViewById(R.id.nav_view)
+            val headerView = Nav_View.getHeaderView(0)
+            var name: TextView = headerView.findViewById(R.id.name)
+            var email: TextView = headerView.findViewById(R.id.email)
+            name.text = user.displayName.toString()
+            email.text = user.email.toString()
+            //detail.text = user.photoUrl.toString()
+        } else {
+
+            //detail.text = "photoURL"
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        callbackManager?.onActivityResult(requestCode, resultCode, data)
+
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                firebaseAuthWithGoogle(account.idToken!!)
+
+                User.setName(auth.currentUser!!.displayName.toString())
+                User.setEmail(auth.currentUser!!.email.toString())
+                Log.d("googleEmail", auth.currentUser!!.email.toString())
+                User.setUserLog(true)
+
+                Log.d("@@", auth.currentUser!!.email.toString())
+                finish()
+            } catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e)
+            }
+        }
+    }
+
+    // [START auth_with_google]
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        // [START_EXCLUDE silent]
+        // [END_EXCLUDE]
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("TAG", "signInWithEmail:success")
-                    val user = auth.currentUser
+                    Log.d(TAG, "signInWithCredential:success")
+                    finish()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("TAG", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }
             }
     }
+    // [END auth_with_google]
+
+    // [START signin]
+    private fun signIn() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+    // [END signin]
+
+    private fun signOut() {
+        // Firebase sign out
+        auth.signOut()
+
+        // Google sign out
+        googleSignInClient.signOut().addOnCompleteListener(this) {
+        }
+    }
+    companion object {
+        private const val TAG = "GoogleActivity"
+        private const val RC_SIGN_IN = 9001
+    }
+
 }

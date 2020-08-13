@@ -1,6 +1,7 @@
 package com.example.tmapclone_kickgoing
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,10 +10,11 @@ import android.graphics.PointF
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -21,58 +23,110 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import com.skt.Tmap.TMapMarkerItem
-import com.skt.Tmap.TMapPOIItem
-import com.skt.Tmap.TMapPoint
-import com.skt.Tmap.TMapView
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
+import com.skt.Tmap.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.insert_or_marker_find_load.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+import org.techtown.mapservicewithtmapapi.GetWeatherTask
+import org.techtown.mapservicewithtmapapi.MySingleClickListener
+import org.techtown.mapservicewithtmapapi.MylongClickListener
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+
     private var isLocation = true
     private var actionBar = false
-    private var tMapView:TMapView? = null
+    private lateinit var tMapView:TMapView
+    private var QR_on = false
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //var currentUser: FirebaseAuth = Activity_login.auth
 
     private var myLongitude: Double = 0.0 // 현재위치, 경도
     private var myLatitude: Double = 0.0   // 현재위치, 위도
     var data = HashMap<String, TMapMarkerItem>() // 킥고잉 마커명, 위치 저장 해시맵
-    var pDistance:makedDistanceEvent = makedDistanceEvent()
     var n=0
 
     private val GPS_ENABLE_REQUEST_CODE = 2001
     private val PERMISSIONS_REQUEST_CODE = 100
-    var REQUIRED_PERMISSIONS =
-        arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION)
+    var REQUIRED_PERMISSIONS = arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_format_list_bulleted_24)
+
 
         //val Rlayout:RelativeLayout = findViewById(R.id.map_view) as RelativeLayout
         tMapView = TMapView(this)
         tMapView!!.setSKTMapApiKey("l7xx6974090fe01b4f089324f17b6e5be7f3")
-        map_view.addView(tMapView)  //레이아웃에 Tmap 추가
+//        map_view.addView(tMapView)  //레이아웃에 Tmap 추가
         tMapView!!.setIconVisibility(true)
         tMapView!!.setCompassMode(true)
         tMapView!!.setSightVisible(true)
+
+
+        //
+        var markerArr = ArrayList<TMapMarkerItem>()     // Marker 목록
+        var tMapPolyLineOfCourse = TMapPolyLine()   // 길찾기 기능 수행시 반환되는 PolyLine
+        var pointArr = ArrayList<TMapPoint>()   // 출발지, 목적지를 가리키는 TMapPoint
+        pointArr.add(TMapPoint(0.0, 0.0))   // 출발지, 목적지를 가리키는 ArrayList 초기화(2칸) 동시에 기본 값 할당
+        pointArr.add(TMapPoint(0.0, 0.0))   // 출발지, 목적지를 가리키는 ArrayList 초기화(2칸) 동시에 기본 값 할당
+
+        var myListener = MylongClickListener(tMapView, pointArr, markerArr, this)   // 리스너 생성
+        tMapView.setOnCalloutRightButtonClickListener(myListener)       // 리스너 등록
+        tMapView.setOnLongClickListenerCallback(myListener)     // 리스너 등록
+//        tMapView.setOnClickListenerCallBack(MySingleClickListener(findLoad))   // 리스너 생성 및 등록
+        map_view.addView(tMapView)
+
+
+        var Marker: LinearLayout = View.inflate(this@MainActivity, R.layout.insert_or_marker_find_load, null) as LinearLayout
+        val insert = Marker.findViewById<Button>(R.id.insert)
+        val marker = Marker.findViewById<Button>(R.id.marker)
+
+        var builder1:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+        builder1.setView(Marker).setNegativeButton("닫기") { dialogInterface, i ->
+            dialogInterface.dismiss()
+        }
+
+        var builder2 = builder1.create()
+
+        findLoad.setOnClickListener {
+            builder2.setIcon(R.drawable.kickgoing)
+            builder2.setTitle("Find_Load")
+            builder2.show()
+
+        } //end of findLoad Listener
+
+        insert.setOnClickListener {
+            val myIntent = Intent(this, FindLoad::class.java)
+            myIntent.putExtra("key","0")
+            startActivityForResult(myIntent, 0)
+            builder2.dismiss()
+        }
+
+        marker.setOnClickListener {
+            GetWeatherTask(map_view, tMapView, pointArr, tMapPolyLineOfCourse).execute()
+            builder2.dismiss()
+        }
+
+
+        nav_view.setNavigationItemSelectedListener(this)
 
         setGps()
 
@@ -95,12 +149,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     marker.canShowCallout = true
                     marker.calloutTitle=model
 
+
                     data.put("marker${n}", marker) // HashMap에 데이터 삽입
                     // 현재위치와 각 킥고잉들의 거리 계산
                     // CalcDistance = makedDistanceEvent.kt 클래스의 메소드
-                    var dist = pDistance.CalcDistance(myLatitude, myLongitude, marker.tMapPoint.latitude, marker.tMapPoint.longitude)
+
+                    var mylocation = TMapPoint(myLatitude, myLongitude)
+                    var tpolyLine = TMapPolyLine()
+                    tpolyLine.addLinePoint(mylocation)
+                    tpolyLine.addLinePoint(kickgoingPoint)
+                    var dist = tpolyLine.distance.toInt()
                     marker.calloutSubTitle = "${dist}m"
-                    var s: String? = kickgoingSnapshot.key // 마커 이름 어케되는지 알아보려는 코드
                     tMapView!!.addMarkerItem("marker${n}", marker)
                 }
                 tMapView!!.setCompassMode(true)
@@ -108,61 +167,118 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
 
-        tMapViewEventListener()
+
+//        tMapViewEventListener()
         clickListener()     //각종 버튼들의 클릭 리스너
     }   //end of onCreate()
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val result : ArrayList<Double>?     // 출발지와 목적지에 대한 위경도 값을 받아올 공간
+        if (requestCode == 0) {
+            result = data!!.getSerializableExtra("Position") as ArrayList<Double>   // 출발지와 목적지에 대한 위경도 값을 받아옴
+            var temp1 = TMapPoint(result[1], result[0])     // 받아온 출발지 위경도로 TMapPoint 생성
+            var temp2 = TMapPoint(result[3], result[2])     // 받아온 목적지 위경도로 TMapPoint 생성
+            var tempArr = ArrayList<TMapPoint>()        // 쓰레드 클래스 매개변수로 넣을 배열 생성
+            tempArr.add(temp1)  // 값 넣어주기
+            tempArr.add(temp2)  // 값 넣어주기
+            var tmapPolyLine = TMapPolyLine()       // 쓰레드 클래스 매개변수로 사용될 폴리라인 생성
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
+            GetWeatherTask(this.map_view, tMapView, tempArr, tmapPolyLine).execute() // 쓰레드 클래스 생성 및 수행
+        }
+        when (requestCode) {
+            GPS_ENABLE_REQUEST_CODE ->
+                //사용자가 GPS 활성 시켰는지 검사
+                if (checkLocationServicesStatus()) {
+                    if (checkLocationServicesStatus()) {
+                        Log.d("@@@", "onActivityResult : GPS 활성화 되있음")
+                        checkRunTimePermission()
+                        return
+                    }
+                }
+        }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    private fun tMapViewEventListener(){
-        tMapView!!.setOnClickListenerCallBack(object : TMapView.OnClickListenerCallback {
-            override fun onPressEvent(
-                p0: ArrayList<TMapMarkerItem>?,
-                p1: ArrayList<TMapPOIItem>?,
-                p2: TMapPoint?,
-                p3: PointF?
-            ): Boolean {
-                // tmapView!!.setTrackingMode(true)
-                tMapView!!.setCompassMode(true)
-                tMapView!!.setSightVisible(true)
-                tMapView!!.invalidate()
-                return false
+        if(QR_on == true){
+            // 2020-08-11(화) 작성
+            var result1:IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if(result1 != null){
+                if(result1.contents == null){
+                    Toast.makeText(this, "canclled", Toast.LENGTH_SHORT).show()
+                    QR_on = false
+                }
+                else{
+                    Toast.makeText(this, "Scanned"+result1.contents, Toast.LENGTH_SHORT).show()
+                }
             }
+        }
 
-            override fun onPressUpEvent(
-                p0: ArrayList<TMapMarkerItem>?,
-                p1: ArrayList<TMapPOIItem>?,
-                p2: TMapPoint?,
-                p3: PointF?
-            ): Boolean {
-                //tmapView!!.setTrackingMode(true)
-                tMapView!!.setCompassMode(true)
-                tMapView!!.setSightVisible(true)
-                tMapView!!.invalidate()
-                return false
+        if(resultCode == Activity.RESULT_OK){
+            if(requestCode == OPEN_GALLERY){
+                var currentImageUrl: Uri? = data?.data
+                try{
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, currentImageUrl)
+                    imageView.setImageBitmap(bitmap)
+                }catch (e:Exception){
+                    e.printStackTrace()
+                }
             }
-        })
+        }else{
+            Log.d("ActivityResult", "something wrong")
+        }
+
     }
+    override fun onStart() {
+        super.onStart()
+
+        Log.d("start", User.getUserLog().toString())
+        Log.d("start", User.getName().toString())
+        Log.d("start", User.getEmail().toString())
+        if(User.getUserLog() == true){
+            name.text = User.getName()
+            email.text = User.getEmail()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId){
+            android.R.id.home -> {
+                drawer_layout.openDrawer(GravityCompat.START)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+//
+//    private fun tMapViewEventListener(){
+//        tMapView!!.setOnClickListenerCallBack(object : TMapView.OnClickListenerCallback {
+//            override fun onPressEvent(
+//                p0: ArrayList<TMapMarkerItem>?,
+//                p1: ArrayList<TMapPOIItem>?,
+//                p2: TMapPoint?,
+//                p3: PointF?
+//            ): Boolean {
+//                // tmapView!!.setTrackingMode(true)
+//                tMapView!!.setCompassMode(true)
+//                tMapView!!.setSightVisible(true)
+//                tMapView!!.invalidate()
+//                return false
+//            }
+//
+//            override fun onPressUpEvent(
+//                p0: ArrayList<TMapMarkerItem>?,
+//                p1: ArrayList<TMapPOIItem>?,
+//                p2: TMapPoint?,
+//                p3: PointF?
+//            ): Boolean {
+//                //tmapView!!.setTrackingMode(true)
+//                tMapView!!.setCompassMode(true)
+//                tMapView!!.setSightVisible(true)
+//                tMapView!!.invalidate()
+//                return false
+//            }
+//        })
+//    }
 
 
     private val mLocationListener: LocationListener = object : LocationListener {
@@ -174,6 +290,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 tMapView!!.setLocationPoint(myLongitude, myLatitude)
                 tMapView!!.setCenterPoint(myLongitude, myLatitude)
                 tMapView!!.setTrackingMode(true)
+
+                // 2020-08-11(화) 작성
+                // 현재 위치에 따른 킥고잉 마커와의 거리 지속 갱신
+                Thread(Runnable {
+                    runOnUiThread {
+                        for(i in data){
+                            var lat = i.value.tMapPoint.latitude
+                            var lon = i.value.tMapPoint.longitude
+                            var model = i.value.calloutTitle
+
+                            var p = TMapPoint(lat, lon)
+
+                            var mylocation = TMapPoint(myLatitude, myLongitude)
+                            var tpolyLine = TMapPolyLine()
+                            tpolyLine.addLinePoint(mylocation)
+                            tpolyLine.addLinePoint(p)
+                            var dist = tpolyLine.distance.toInt()
+                            i.value.autoCalloutVisible = true
+                            i.value.calloutSubTitle = "${dist}m"
+                        }
+                    }
+                }).start()
+
             }
         }
 
@@ -193,8 +332,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // 2020-07-29 작성
     // 현재위치를 위한 gps를 받아오는 함수
     fun setGps() {
-        val lm =
-            this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val lm = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -248,10 +386,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         //길찾기 버튼 클릭시 화면 전환
-        findLoad.setOnClickListener {
-            var intent = Intent(this, FindLoad::class.java)
-            startActivity(intent)
-        }
+//        findLoad.setOnClickListener {
+//            var intent = Intent(this, FindLoad::class.java)
+//            startActivity(intent)
+//        }
 
         tMapView!!.setOnClickListenerCallBack(object: TMapView.OnClickListenerCallback{
             override fun onPressEvent(
@@ -260,7 +398,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 p2: TMapPoint?,
                 p3: PointF?
             ): Boolean {
-                nav_view.visibility = View.GONE
                 actionBar = true
                 tMapView!!.setTrackingMode(false)
                 tMapView!!.setSightVisible(false)
@@ -268,6 +405,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 tMapView!!.invalidate()
                 isLocation = false
                 myLocation.setImageResource(R.drawable.ic_baseline_my_location_24_black)
+
+                // 2020-08-12(수) 작성
+                p0!!.forEach { i ->
+                    Thread(Runnable {
+                        runOnUiThread {
+                            var lat = i.tMapPoint.latitude
+                            var lon = i.tMapPoint.longitude
+
+                            var p:TMapPoint = TMapPoint(lat, lon)
+                            var mylocation = TMapPoint(myLatitude, myLongitude)
+                            var tpolyLine = TMapPolyLine()
+                            tpolyLine.addLinePoint(p)
+                            tpolyLine.addLinePoint(mylocation)
+
+                            var dist = tpolyLine.distance.toInt()
+                            i.calloutSubTitle = "${dist}m"
+                            i.autoCalloutVisible = true
+                        }
+                    }).start()
+                }
                 return false
             }
 
@@ -277,7 +434,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 p2: TMapPoint?,
                 p3: PointF?
             ): Boolean {
-                nav_view.visibility = View.GONE
                 actionBar = false
                 tMapView!!.setTrackingMode(false)
                 tMapView!!.setSightVisible(false)
@@ -289,34 +445,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
 
-        menu.setOnClickListener {
-            if(actionBar)
-            {
-                nav_view.visibility = View.GONE
-                actionBar = false
-            }
-            else{
-                nav_view.visibility = View.VISIBLE
-                actionBar = true
-            }
-        }
 
-        var newUser: LinearLayout =
-            View.inflate(this@MainActivity, R.layout.login_newuser, null) as LinearLayout
-        var builder2:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
-        builder2.setIcon(R.drawable.kickgoing)
-        builder2.setTitle("QucikGoing")
+
+        var newUser: LinearLayout = View.inflate(this@MainActivity, R.layout.login_newuser, null) as LinearLayout
+        var builder1:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+        builder1.setView(newUser).setNegativeButton("닫기"){ dialogInterface, i ->
+            dialogInterface.dismiss()
+        }
         val newUserButton = newUser.findViewById<Button>(R.id.makeUser)
         val loginButton = newUser.findViewById<Button>(R.id.login)
 
+        var builder2 = builder1.create()
+
         //이용하기 버튼 클릭 시 로그인 여부에 따라 로그인 및 회원가입 창 띄우기
         usingButton.setOnClickListener {
-            /*
-                이용하기 버튼을 두번 클릭 할 경우 기존에 뷰가 남아있어서 오류가 나기때문에 기존의 Parent가 존재 한다면 기존의 뷰를 제거해줘야한다.
-            */
-            if (newUser.getParent() != null) (newUser.getParent() as ViewGroup).removeView(newUser)
-            builder2.setView(newUser).setNegativeButton("닫기"){dialogInterface, i ->
-                dialogInterface.dismiss()}.show()
+            Log.d("login", User.getUserLog().toString())
+            if(User.getUserLog() == false){
+                // login intent
+
+                builder2.setIcon(R.drawable.kickgoing)
+                builder2.setTitle("QucikGoing")
+                builder2.show()
+            }
+            else if(User.getUserLog() == true){
+                // qr
+                var intentIntegrator:IntentIntegrator = IntentIntegrator(this)
+                intentIntegrator.initiateScan()
+                QR_on = true
+            }
+
+
         } // end of usingButton Listener
 
         /*
@@ -326,16 +484,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         newUserButton.setOnClickListener {// 다이얼로그 상자에 회원가입 버튼 누를 시 회원가입 페이지로 인텐트 전환
             val intent: Intent = Intent(this, RegisterEvent::class.java)
             startActivity(intent)
+            builder2.dismiss()
         }
 
         loginButton.setOnClickListener {
            val intent: Intent = Intent(this, Activity_login::class.java)
             startActivity(intent)
+            builder2.dismiss()
         }   //end of loginButton Listener
 
-    }   //end of clickListener
-    
 
+    }   //end of clickListener
+
+    private val OPEN_GALLERY = 1
+    private fun openGallery(){
+        val intent:Intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.setType("imge/*")
+        startActivityForResult(intent, OPEN_GALLERY)
+    }
 
     override fun onResume() {
         super.onResume()
@@ -464,24 +630,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         builder.create().show()
     }
 
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int,
-        data: Intent?
-    ) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            GPS_ENABLE_REQUEST_CODE ->
-                //사용자가 GPS 활성 시켰는지 검사
-                if (checkLocationServicesStatus()) {
-                    if (checkLocationServicesStatus()) {
-                        Log.d("@@@", "onActivityResult : GPS 활성화 되있음")
-                        checkRunTimePermission()
-                        return
-                    }
-                }
-        }
-    }
+
 
     private fun checkLocationServicesStatus(): Boolean {
         val locationManager =
@@ -490,13 +639,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
     }
 
+    override fun onBackPressed() { //뒤로가기 처리
+        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
+            drawer_layout.closeDrawers()
+            // 테스트를 위해 뒤로가기 버튼시 Toast 메시지
+            Toast.makeText(this,"back btn clicked",Toast.LENGTH_SHORT).show()
+        } else{
+            super.onBackPressed()
+        }
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.account-> Toast.makeText(this,"account clicked",Toast.LENGTH_SHORT).show()
+            R.id.account-> {
+                val intent: Intent = Intent(this, Activity_login::class.java)
+                startActivity(intent)
+            }
             R.id.how-> Toast.makeText(this,"item2 clicked",Toast.LENGTH_SHORT).show()
             R.id.setting-> Toast.makeText(this,"item3 clicked",Toast.LENGTH_SHORT).show()
         }
         return false
     }
 
+    companion object {
+        public lateinit var auth: FirebaseAuth
+    }
 }
