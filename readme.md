@@ -4,7 +4,7 @@
 #### API 변경 일자 : 2020-07-20(월) [KakaoMap API -> Tmap API]   
 
 - 이형석(16학번, 소프트웨어)   
-		* branch : dev   
+		* branch : <span style="color:red">dev</span>
 
 	- 박세경(17학번, 컴퓨터공학과)   
 				* branch : psk
