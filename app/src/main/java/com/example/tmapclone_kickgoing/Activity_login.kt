@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import com.example.tmapclone_kickgoing.MainActivity.Companion.auth
 import com.facebook.*
 import com.facebook.appevents.AppEventsLogger
 import com.facebook.login.LoginManager
@@ -37,9 +38,23 @@ class Activity_login : AppCompatActivity() {
 
     lateinit var callbackManager: CallbackManager
 
-    // [END declare_auth]
-
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    private fun registerFB(){
+        auth = Firebase.auth
+        auth.signInWithEmailAndPassword("", "")
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d("TAG", "signInWithEmail:success")
+                    val user = auth.currentUser
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "signInWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +89,7 @@ class Activity_login : AppCompatActivity() {
         var checking_id: Boolean = false
 
         btnLogin.setOnClickListener {
+            registerFB()
             val str_id: String = etEmail.text.toString()
             val str_pass: String = etPassword.text.toString()
 
@@ -95,6 +111,12 @@ class Activity_login : AppCompatActivity() {
                         // 입력한 비밀번호와 DB에서 가져온 비밀번호 일치 시
                         if (str_pass.equals(temp)) { // 로그인 성공
                             Toast.makeText(applicationContext, "${str_id} 님이 로그인하셨습니다.", Toast.LENGTH_SHORT).show()
+
+                            User.setName(str_id)
+                            User.setEmail(auth.currentUser!!.email.toString())
+                            User.setUserLog(true)
+                            Log.d("login", User.getUserLog().toString())
+                            finish()
                         }
                         // 아이디는 일치, 비밀번호가 불일치할 때
                         else{
@@ -115,7 +137,6 @@ class Activity_login : AppCompatActivity() {
                 Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
                 tMapView!!.invalidate() // 2020-07-30(목) 작성
             }
-
              */
         }
 
@@ -131,6 +152,13 @@ class Activity_login : AppCompatActivity() {
                 //페이스북 로그인 성공
                 handleFacebookAccessToken(result?.accessToken)
                 Toast.makeText(applicationContext,"로그인 성공",Toast.LENGTH_SHORT).show()
+
+                User.setName(auth.currentUser!!.displayName.toString())
+                User.setEmail("FaceBook")
+
+                Log.d("EEE", auth.currentUser!!.displayName.toString())
+                User.setUserLog(true)
+                finish()
             }
             override fun onCancel() {
                 //페이스북 로그인 취소
@@ -138,6 +166,7 @@ class Activity_login : AppCompatActivity() {
             }
 
             override fun onError(error: FacebookException?) {
+                Toast.makeText(applicationContext, "실패한것이야요", Toast.LENGTH_SHORT).show()
                 //페이스북 로그인 실패
                 //updateUI(null)
             }
@@ -170,7 +199,8 @@ class Activity_login : AppCompatActivity() {
         val currentUser = auth.currentUser
         // Check if user is signed in (non-null) and update UI accordingly.
         Log.d(TAG, "firebaseAuthWithGoogle:" + currentUser?.displayName)
-        if(auth.currentUser!=null){
+        if(currentUser !=null){
+            Log.d("@@@@", currentUser!!.email.toString())
             Toast.makeText(this,"로그인 상태입니다.",Toast.LENGTH_SHORT).show()
             //updateUI(auth.currentUser!!) // auth.currentUser
         }
@@ -207,6 +237,14 @@ class Activity_login : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
+
+                User.setName(auth.currentUser!!.displayName.toString())
+                User.setEmail(auth.currentUser!!.email.toString())
+                Log.d("googleEmail", auth.currentUser!!.email.toString())
+                User.setUserLog(true)
+
+                Log.d("@@", auth.currentUser!!.email.toString())
+                finish()
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
@@ -248,14 +286,9 @@ class Activity_login : AppCompatActivity() {
         googleSignInClient.signOut().addOnCompleteListener(this) {
         }
     }
-
     companion object {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
-        public lateinit var auth: FirebaseAuth
     }
 
-    public fun getAuth():FirebaseUser{
-        return auth.currentUser!!
-    }
 }

@@ -16,6 +16,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-
+    <string name="facebook_app_key">1400398036823899</string>
     <string name="facebook_app_id">216047153118367</string> <string name="fb_login_protocol_scheme">fb216047153118367</string>
 </resources>

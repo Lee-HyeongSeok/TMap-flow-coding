@@ -27,7 +27,7 @@ class GetWeatherTask(TmapLayout: RelativeLayout,tmap: TMapView, pointARR: ArrayL
     override fun onPostExecute(result: Boolean?) {
 
         innerTmap.addTMapPolyLine("Line1", tMapPolyLine)
-        map.invalidate()
+        //map.invalidate()
         Log.d("MainActivity distance t", tMapPolyLine.distance.toString())
 
         return
