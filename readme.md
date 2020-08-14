@@ -62,3 +62,15 @@
 			- Git   
 			- Github   
 
+	- 스프린트 0 기간 : 2020-07-20(월) ~ 2020-08-02(일)   
+
+
+- 2020-08-14(금) 스프린트 1주차 백로그 설명 및 최종 발표   
+
+	- 스프린트 1 기간 : 2020-08-03(월) ~ 2020-08-14(금)   
+
+	- 제품 시연 영상 : <https://www.youtube.com/watch?v=ktHRSrwHqg4>   
+
+	- Trello : <https://trello.com/b/kNsqNjrU/agile-scrum-project-management2020-07-20-2020-08-02>   
+
+	
