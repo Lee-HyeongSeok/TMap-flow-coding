@@ -44,7 +44,7 @@ class Activity_login : AppCompatActivity() {
 
     private fun registerFB(){
         auth = Firebase.auth
-        auth.signInWithEmailAndPassword("1170313@naver.com", "silver12")
+        auth.signInWithEmailAndPassword("email", "password")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithEmail:success")
