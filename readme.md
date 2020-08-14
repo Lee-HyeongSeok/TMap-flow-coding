@@ -74,6 +74,7 @@
 	- Trello : <https://trello.com/b/kNsqNjrU/agile-scrum-project-management2020-07-20-2020-08-02>   
 
 	- 최종 발표 자료 : <https://github.com/leehyeongseck/TMap-flow-coding/blob/master/1%ED%8C%80%20%EC%B5%9C%EC%A2%85%20%EB%B0%9C%ED%91%9C.pdf>   
+			- 작성자 : 조현민(16), 박세경(17)
 
 	- 작업 공수표 : <https://github.com/leehyeongseck/TMap-flow-coding/blob/master/%EC%9E%91%EC%97%85%EA%B3%B5%EC%88%98.pdf>   
 
