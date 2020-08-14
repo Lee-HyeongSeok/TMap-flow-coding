@@ -1,0 +1,286 @@
+[
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register_event.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\activity_register_event.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_my_location_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_my_location_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_kickgoing.jpg.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\kickgoing.jpg"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_border.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\rounded_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bike.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\bike.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_account_circle_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_account_circle_24_blue.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_account_circle_24_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_directions_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_directions_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_account_black.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_account_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable-v24\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_gallery.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_run.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\run.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\menu_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu1.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\menu\\menu1.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_blue_round.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\btn_blue_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_add_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_facebook.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_facebook.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_splash.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_car.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\car.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_my_location_24_black.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_my_location_24_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_yellow_round.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\btn_yellow_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bike_blue.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\bike_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_blue_button.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\blue_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_kickicon.jpg.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\kickicon.jpg"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu2.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\menu\\menu2.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_subway_blue.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\subway_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_login_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_login_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_blue_dark.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\btn_blue_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_run_blue.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\run_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_curclebtn.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\curclebtn.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_subway.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\subway.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_facebook_button.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\facebook_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_format_list_bulleted_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_format_list_bulleted_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_kickgoing.jpg.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\mipmap-xxhdpi\\kickgoing.jpg"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_insert_or_marker_find_load.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\insert_or_marker_find_load.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_remove_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_remove_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_menu_book_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_menu_book_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundbutton.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\roundbutton.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_login_newuser.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\login_newuser.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_settings_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_settings_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_near_me_24.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_near_me_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_kakao_login_medium_wide.jpg.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable-v24\\kakao_login_medium_wide.jpg"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_near_me_24_black.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\ic_baseline_near_me_24_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_car_blue.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\car_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundbutton_green.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\roundbutton_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custommarker.png.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\custommarker.png"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header_main.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_slideshow.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\fragment_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_find_load.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\layout\\activity_find_load.xml"
+    },
+    {
+        "merged": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\build\\intermediates\\res\\merged\\debug\\drawable_close.xml.flat",
+        "source": "C:\\Users\\LG\\AndroidStudioProjects\\TmapCloneKickGoing\\app\\src\\main\\res\\drawable\\close.xml"
+    }
+]

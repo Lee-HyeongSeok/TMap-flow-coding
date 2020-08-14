@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="showInformed" />
+        <option name="name" value="@@@@" />
+        <option name="packageNamePattern" value="" />
+        <option name="pid" value="" />
+      </filter>
+    </filters>
+  </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="@@@@" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4fa96ebc-745d-4b0f-bcc8-1a4421358d51" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Q_Pixel_2_" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="valueResourceFile" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1fIzRaGWaZf10CUAXibijj6wQeS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="R3CMB0FTTJJ" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-08-13T17:28:14.296Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="C:/CookAndroid/SDK" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.-1922789525">
+      <recent name="com.example.tmapclone_kickgoing" />
+    </key>
+    <key name="android.template.-1455531391">
+      <recent name="com.example.tmapclone_kickgoing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\res\drawable-v24" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\res\drawable" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\libs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\res\drawable" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\res\mipmap-xxhdpi" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\res" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\java\com\example\tmapclone_kickgoing" />
+      <recent name="C:\Users\LG\AndroidStudioProjects\TmapCloneKickGoing\app\src\main\java\com\example" />
+    </key>
+    <key name="android.template.1539734175">
+      <recent name="com.example.tmapclone_kickgoing" />
+    </key>
+    <key name="android.template.329128263">
+      <recent name="com.example.tmapclone_kickgoing" />
+    </key>
+    <key name="android.template.2015816854">
+      <recent name="com.example.tmapclone_kickgoing" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TmapCloneKickGoing [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.TmapCloneKickGoing [signingReport]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4fa96ebc-745d-4b0f-bcc8-1a4421358d51" name="Default Changelist" comment="" />
+      <created>1595920388632</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595920388632</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="550" y="22" key="#Auto_Import" timestamp="1597128917171">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="550" y="22" key="#Auto_Import/0.0.1366.728@0.0.1366.728" timestamp="1597128917171" />
+    <state x="0" y="22" key="#Inspections" timestamp="1596007548272">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="22" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1596007548272" />
+    <state x="472" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1596614234630">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="472" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596614234630" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597213028851">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597213028851" />
+    <state x="0" y="122" key="AndroidCreateResourceDirectoryDialog" timestamp="1596009992932">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="122" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1596009992932" />
+    <state x="526" y="197" key="AndroidCreateResourceFileDialog" timestamp="1597300514423">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="526" y="197" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597300514423" />
+    <state x="200" y="194" key="AndroidCreateXmlResourceDialog" timestamp="1596007285982">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="200" y="194" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1596007285982" />
+    <state x="813" y="122" key="FileChooserDialogImpl" timestamp="1597334393019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="813" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597334393019" />
+    <state width="1323" height="148" key="GridCell.Tab.0.bottom" timestamp="1597339832370">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="148" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597339832370" />
+    <state width="1323" height="148" key="GridCell.Tab.0.center" timestamp="1597339832370">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="148" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597339832370" />
+    <state width="1323" height="148" key="GridCell.Tab.0.left" timestamp="1597339832369">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="148" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597339832369" />
+    <state width="1323" height="148" key="GridCell.Tab.0.right" timestamp="1597339832370">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="148" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597339832370" />
+    <state x="184" y="6" key="SettingsEditor" timestamp="1596611718239">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596611718239" />
+    <state x="717" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1597322468223">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="717" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597322468223" />
+    <state x="623" y="351" key="edit.logcat.filter.dialog.dimensions" timestamp="1597338359324">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="623" y="351" key="edit.logcat.filter.dialog.dimensions/0.0.1366.728@0.0.1366.728" timestamp="1597338359324" />
+  </component>
+</project>
